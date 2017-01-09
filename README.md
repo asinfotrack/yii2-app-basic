@@ -19,7 +19,14 @@ You can then install this project template using the following command:
 
 ~~~
 php composer.phar global require "fxp/composer-asset-plugin:^1.2.0"
-php composer.phar create-project --prefer-dist --stability=dev asinfotrack/yii2-app-basic basic your-folder-name
+php composer.phar create-project --prefer-dist --stability=dev asinfotrack/yii2-app-basic your-folder-name dev-master
+~~~
+
+or if you have composer and php on the path-variable
+
+~~~
+composer global require "fxp/composer-asset-plugin:^1.2.0"
+composer create-project --prefer-dist --stability=dev asinfotrack/yii2-app-basic your-folder-name dev-master
 ~~~
 
 Now you should be able to access the application through the following URL, assuming `basic` is the directory
@@ -29,6 +36,21 @@ directly under the Web root.
 http://localhost/basic/web/
 ~~~
 
+### Install NPM, its modules and create first grunt-build
+
+Assert npm is properly installed and on your path-variable and execute the following command:
+
+~~~
+npm install
+~~~
+
+After all modules are installed, you can create first grunt build:
+
+~~~
+grunt build
+~~~
+
+After that you can use the console with only `grunt` which will start listening for relevant file changes.
 
 ### Update cookie validation key 
 
