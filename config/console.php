@@ -1,43 +1,44 @@
 <?php
+require('environment.php');
 
-$params = require(__DIR__ . '/params.php');
-$db = require(__DIR__ . '/db.php');
+//prepare actual config
+return [
 
-$config = [
-    'id' => 'basic-console',
-    'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
-    'controllerNamespace' => 'app\commands',
-    'components' => [
-        'cache' => [
-            'class' => 'yii\caching\FileCache',
-        ],
-        'log' => [
-            'targets' => [
-                [
-                    'class' => 'yii\log\FileTarget',
-                    'levels' => ['error', 'warning'],
-                ],
-            ],
-        ],
-        'db' => $db,
-    ],
-    'params' => $params,
-    /*
-    'controllerMap' => [
-        'fixture' => [ // Fixture generation command line.
-            'class' => 'yii\faker\FixtureController',
-        ],
-    ],
-    */
+	'id'=>'site-console',
+	'basePath'=>dirname(__DIR__),
+	'bootstrap'=>['log'],
+	'controllerNamespace'=>'app\commands',
+	'modules'=>[
+		'gii'=>'yii\gii\Module',
+	],
+	'components'=>[
+
+		'cache'=>[
+			'class'=>'yii\caching\DbCache',
+		],
+		'log'=>[
+			'traceLevel'=>0,
+			'targets'=>[
+				[
+					'class'=>'yii\log\FileTarget',
+					'levels'=>['info', 'error', 'warning'],
+					'logFile'=>'@runtime/logs/site.console.log',
+					'logVars'=>[],
+					'except'=>['yii\*'],
+					'maxLogFiles'=>5,
+				],
+				[
+					'class'=>'yii\log\FileTarget',
+					'levels'=>['error', 'warning'],
+					'logFile'=>'@runtime/logs/site.console.error.log',
+					'maxLogFiles'=>5,
+				],
+			],
+		],
+		'db'=>require(__DIR__ . '/db.php'),
+
+	],
+
+	'params'=>require(__DIR__ . '/params.php'),
+
 ];
-
-if (YII_ENV_DEV) {
-    // configuration adjustments for 'dev' environment
-    $config['bootstrap'][] = 'gii';
-    $config['modules']['gii'] = [
-        'class' => 'yii\gii\Module',
-    ];
-}
-
-return $config;

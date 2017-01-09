@@ -1,0 +1,237 @@
+//common
+
+.well-muted { opacity: $opacity-translucent; }
+.not-set { color: $color-font-muted; font-size: $font-scale-smaller; }
+.alert { border-radius: 0; }
+.noselect {
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none;   /* Chrome/Safari/Opera */
+	-khtml-user-select: none;    /* Konqueror */
+	-moz-user-select: none;      /* Firefox */
+	-ms-user-select: none;       /* Internet Explorer/Edge */
+	user-select: none;           /* Non-prefixed version, currently not supported by any browser */
+}
+
+.bg-highlight { background-color: $color-bg-highlight !important; }
+
+.text-smallest { font-size: $font-scale-smallest; }
+.text-smaller { font-size: $font-scale-smaller; }
+.text-larger { font-size: $font-scale-larger; }
+.text-largest { font-size: $font-scale-largest; }
+
+//spacing
+
+$sizingPropList: (margin: m, padding: p);
+$sizingSizeList: (a: '', t: '-top', r: '-right', b: '-bottom', l: '-left');
+$sizingDimensionList: ('-xs': $measure-xs, '-sm': $measure-sm, '': $measure, '-lg': $measure-lg, '-xl': $measure-xl);
+@each $cssProp, $cssAbbr in $sizingPropList {
+	@each $dirAbbr, $dirPropSuffix in $sizingSizeList {
+		@each $name, $measure in $sizingDimensionList {
+			.#{$cssAbbr}-#{$dirAbbr}#{$name} {
+				#{$cssProp}#{$dirPropSuffix}: #{$measure};
+			}
+		}
+	}
+}
+
+//bootstrap
+
+.btn {
+	border-radius: 0;
+	@media (min-width: $bp-xs-lower-limit) {
+		border-width: 1px;
+	}
+	@media (max-width: $bp-scanner-upper-limit) {
+		border-width: 0;
+	}
+
+	> i+span { margin-left: 5px; }
+}
+.btn-group-xs > .btn, .btn-xs { padding: 1px 5px; font-size: $font-size-sm; }
+
+.btn-primary { @include btn-normal($color-site-primary); }
+.btn-primary:hover, .btn-primary:active:hover, .btn-primary:focus, .btn-primary:focus:hover { @include btn-hover-and-focus($color-site-primary); }
+.btn-primary:active, .btn-primary.active { @include btn-active($color-site-primary); }
+.btn-primary[disabled=disabled], .btn-primary[disabled=disabled]:focus { @include btn-disabled($color-site-primary); }
+
+.btn-success { @include btn-normal($color-bs-success); }
+.btn-success:hover, .btn-success:active:hover, .btn-success:focus, .btn-success:focus:hover { @include btn-hover-and-focus($color-bs-success); }
+.btn-success:active, .btn-success.active { @include btn-active($color-bs-success); }
+.btn-success[disabled=disabled], .btn-success[disabled=disabled]:focus { @include btn-disabled($color-bs-success); }
+
+.btn-info { @include btn-normal($color-bs-info); }
+.btn-info:hover, .btn-info:active:hover, .btn-info:focus, .btn-info:focus:hover { @include btn-hover-and-focus($color-bs-info); }
+.btn-info:active, .btn-info.active { @include btn-active($color-bs-info); }
+.btn-info[disabled=disabled], .btn-info[disabled=disabled]:focus { @include btn-disabled($color-bs-info); }
+
+.btn-warning { @include btn-normal($color-bs-warning); }
+.btn-warning:hover, .btn-warning:active:hover, .btn-warning:focus, .btn-warning:focus:hover { @include btn-hover-and-focus($color-bs-warning); }
+.btn-warning:active, .btn-warning.active { @include btn-active($color-bs-warning); }
+.btn-warning[disabled=disabled], .btn-warning[disabled=disabled]:focus { @include btn-disabled($color-bs-warning); }
+
+.btn-danger { @include btn-normal($color-bs-danger); }
+.btn-danger:hover, .btn-danger:active:hover, .btn-danger:focus, .btn-danger:focus:hover { @include btn-hover-and-focus($color-bs-danger); }
+.btn-danger:active, .btn-danger.active { @include btn-active($color-bs-danger); }
+
+.btn-default { @include btn-normal(lighten($color-bs-default, 15%)); color: #fff; }
+.btn-default:hover, .btn-default:active:hover, .btn-default:focus, .btn-default:focus:hover { @include btn-hover-and-focus(lighten($color-bs-default, 15%)); color: #fff; }
+.btn-default:active, .btn-default.active { @include btn-active(lighten($color-bs-default, 15%)); color: #fff; }
+.btn-default[disabled=disabled], .btn-default[disabled=disabled]:focus { @include btn-disabled(lighten($color-bs-default, 15%)); }
+
+.progress { border-radius: 0; background-color: $color-bg; }
+
+.panel {
+	border-radius: 0;
+	box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+
+	.panel-heading {
+		box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+		> i { color: #227542; margin-right: 10px; }
+		> small { color: #999; margin-left: 5px; }
+	}
+
+	.panel-heading.bg-success { background-color: $color-bs-bg-success; }
+	.panel-heading.bg-danger { background-color: $color-bs-bg-danger; }
+	.panel-heading.bg-info { background-color: $color-bs-bg-info; }
+	.panel-heading.bg-warning { background-color: $color-bs-bg-warning; }
+}
+
+.well { padding: $measure-sm; border-radius: 0; box-shadow: none; background-color: $color-bg-brighter; }
+.img-thumbnail { border-radius: 0; }
+.hint-block { display: block; margin-top: $measure-xs; color: $color-font-muted; }
+.summary { text-align: right; margin-bottom: $measure-xs; text-transform: uppercase; font-size: $font-scale-smaller; }
+.error-summary {
+	color: $color-bs-danger;
+	background: $color-bs-bg-danger;
+	border: 1px solid $color-bs-danger;
+
+	padding: $measure-sm $measure;
+	margin: 0 0 $measure-sm 0;
+
+	> p {
+		font-weight: $font-weight-content-bold;
+	}
+	> p:before {
+		content: "\f071";
+		font-family: $font-family-icon;
+		margin-right: $measure-xs;
+	}
+}
+
+.pagination {
+	> li > a, > li > span { color: $color-site-primary; }
+	.active a { background-color: $color-site-primary; border-color: $color-site-primary; }
+	.active a:hover { background-color: $color-site-secondary; border-color: $color-site-secondary; }
+}
+
+.table {
+	thead {
+		th { font-weight: $font-weight-content-semibold; }
+	}
+	td > address { margin: 0; }
+}
+.table-condensed > thead > tr > th, .table-condensed > tbody > tr > th,
+.table-condensed > tfoot > tr > th, .table-condensed > thead > tr > td,
+.table-condensed > tbody > tr > td, .table-condensed > tfoot > tr > td {
+	padding: 3px 4px;
+}
+
+.nav-tabs {
+	margin-bottom: 25px;
+	border-bottom: 1px dotted #ccc;
+
+	> li > a,
+	> li > a:hover {
+		border: 0 solid transparent;
+		border-bottom-width: 3px;
+		border-radius: 0;
+		background-color: transparent;
+	}
+
+	> li.active > a,
+	> li.active > a:hover,
+	> li.active > a:focus {
+		border: 0 solid $color-site-primary;
+		border-bottom-width: 3px;
+	}
+}
+
+.label { font-weight: $font-weight-content; padding: 2px 3px; position: relative; top: -1px; letter-spacing: 0.25px; }
+.label-success { background-color: $color-site-primary; }
+
+.list-group-item-danger { color: $color-bs-danger; background-color: $color-bs-bg-danger; }
+.list-group-item-warning { color: $color-bs-warning; background-color: $color-bs-bg-warning; }
+.list-group-item-info { color: $color-bs-info; background-color: $color-bs-bg-info; }
+.list-group-item-success { color: $color-bs-success; background-color: $color-bs-bg-success; }
+
+.asc:after, .desc:after {
+	display: inline-block;
+	font-family: $font-family-icon;
+	margin-left: 2px;
+}
+.asc:after, .sort-ordinal .asc:after { content: "\f160"; }
+.desc:after, .sort-ordinal .desc:after { content: "\f161"; }
+.sort-numerical {
+	.asc:after { content: "\f162"; }
+	.desc:after { content: "\f163"; }
+}
+
+form > .form-group:last-child { margin-bottom: 0; }
+.form-control { border-radius: 0; background-color: $color-site-bg; }
+.form-control:focus { border-color: $color-site-primary; outline: 0; box-shadow: none; }
+
+//yii
+
+.detail-view {
+	margin-bottom: 0;
+
+	th {
+		font-weight: $font-weight-content-semibold;
+
+		@media (min-width: $bp-sm-lower-limit) {
+			width: 300px;
+		}
+		@media (max-width: $bp-xs-upper-limit) {
+			width: 200px;
+		}
+	}
+	.progress { margin-bottom: 0; box-shadow: none; }
+}
+
+.grid-view {
+	.table {
+		margin-bottom: 0;
+
+		th { white-space: nowrap; }
+
+		.filters .form-control {
+			height: 30px;
+			padding: $measure-xs $measure-sm;
+		}
+
+		.gv-col-id {
+			width: 100px;
+			text-align: center;
+
+			input { text-align: center; }
+		}
+
+		.gv-col-action {
+			width: 80px;
+			padding: 0;
+			font-size: 1.1em;
+			text-align: center;
+			vertical-align: middle;
+
+			i { margin: 0 1px; }
+		}
+
+		@each $percent in (1,2,3,4,5,6,7,8,9,10,15,20,25,30) {
+			.gv-col-#{$percent}  { width: #{$percent}unquote("%"); }
+		}
+		@each $minPixel in (50,75,100,125,150,200,250,300) {
+			.gv-col-min-#{$minPixel}  { min-width: #{$minPixel}px; }
+		}
+	}
+
+}

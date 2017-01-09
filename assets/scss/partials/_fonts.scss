@@ -1,0 +1,76 @@
+//noinspection CssUnknownTarget,CssInvalidPropertyValue
+@font-face {
+	font-family: 'Open Sans';
+	font-weight: 400;
+	font-style: normal;
+	src: url('../fonts/Open-Sans-regular.eot');
+	src: url('../fonts/Open-Sans-regular.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/Open-Sans-regular.woff2') format('woff2'),
+	url('../fonts/Open-Sans-regular.woff') format('woff'),
+	url('../fonts/Open-Sans-regular.ttf') format('truetype'),
+	url('../fonts/Open-Sans-regular.svg#OpenSans') format('svg')
+	local('Open Sans'),
+	local('Open-Sans-regular');
+}
+
+//noinspection CssUnknownTarget,CssInvalidPropertyValue
+@font-face {
+	font-family: 'Open Sans';
+	font-weight: 600;
+	font-style: normal;
+	src: url('../fonts/Open-Sans-600.eot');
+	src: url('../fonts/Open-Sans-600.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/Open-Sans-600.woff2') format('woff2'),
+	url('../fonts/Open-Sans-600.woff') format('woff'),
+	url('../fonts/Open-Sans-600.ttf') format('truetype'),
+	url('../fonts/Open-Sans-600.svg#OpenSans') format('svg'),
+	local('Open Sans Semi-Bold'),
+	local('Open-Sans-600');
+}
+
+//noinspection CssUnknownTarget,CssInvalidPropertyValue
+@font-face {
+	font-family: 'Open Sans';
+	font-weight: 700;
+	font-style: normal;
+	src: url('../fonts/Open-Sans-700.eot');
+	src: url('../fonts/Open-Sans-700.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/Open-Sans-700.woff2') format('woff2'),
+	url('../fonts/Open-Sans-700.woff') format('woff'),
+	url('../fonts/Open-Sans-700.ttf') format('truetype'),
+	url('../fonts/Open-Sans-700.svg#OpenSans') format('svg'),
+	local('Open Sans Bold'),
+	local('Open-Sans-700');
+}
+
+//noinspection CssUnknownTarget,CssInvalidPropertyValue
+@font-face {
+	font-family: 'Lobster';
+	font-weight: 700;
+	font-style: normal;
+	src: url('../fonts/lobster-v18-latin-regular.eot');
+	src: url('../fonts/lobster-v18-latin-regular.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/lobster-v18-latin-regular.woff2') format('woff2'),
+	url('../fonts/lobster-v18-latin-regular.woff') format('woff'),
+	url('../fonts/lobster-v18-latin-regular.ttf') format('truetype'),
+	url('../fonts/lobster-v18-latin-regular.svg#OpenSans') format('svg'),
+	local('Lobster'),
+	local('Lobster-regular');
+}
+
+/*
+//noinspection CssUnknownTarget,CssInvalidPropertyValue
+@font-face {
+	font-family: 'Roboto Slab';
+	font-weight: 700;
+	font-style: normal;
+	src: url('../fonts/Roboto-Slab-700.eot');
+	src: url('../fonts/Roboto-Slab-700.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/Roboto-Slab-700.woff2') format('woff2'),
+	url('../fonts/Roboto-Slab-700.woff') format('woff'),
+	url('../fonts/Roboto-Slab-700.ttf') format('truetype'),
+	url('../fonts/Roboto-Slab-700.svg#RobotoSlab') format('svg'),
+	local('Roboto Slab Bold'),
+	local('Roboto-Slab-700');
+}
+*/

@@ -1,0 +1,39 @@
+//include contents from general styles
+
+@import 'partials/_vars';
+
+//custom email styling
+
+html, body {
+	font-family: 'Open Sans', Arial, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: bold;
+}
+
+h1 { font-size: 20px; }
+h2 { font-size: 18px; }
+h3 { font-size: 16px; }
+h4 { font-size: 14px; }
+
+a, a:link, a:active, a:hover, a:visited {
+	color: $color-sahli-green;
+	text-decoration: underline;
+}
+
+table {
+	width: 100%;
+	max-width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+	border: 1px solid $color-border;
+	background-color: transparent;
+}
+
+tr { display: table-row; }
+th { font-weight: bold; }
+td, th { border: 1px solid $color-border; vertical-align: top; }
+

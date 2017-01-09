@@ -1,0 +1,37 @@
+//headings and typography
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family: $font-family-heading;
+	font-weight: $font-weight-heading;
+
+	> .fa { margin-right: 10px; }
+}
+
+h1 { font-size: $font-size-h1; }
+h2 {
+	font-size: $font-size-h2;
+	margin: $measure-lg 0 $measure 0;
+	padding: 0 0 $measure-sm 0;
+	border-bottom: 1px dotted #ccc;
+}
+h3 { font-size: $font-size-h3; }
+h4 { font-size: $font-size-h4; }
+
+b, optgroup, strong { font-weight: $font-weight-content-bold; }
+
+//links
+
+a:not(.btn), a:not(.btn):visited { color: $color-sahli-green; transition: $transition-color; }
+a:not(.btn):hover, a:not(.btn):focus, a:not(.btn):active {
+	color: $color-sahli-green-alt;
+}
+
+//other
+
+code { background-color: rgba(0,0,0,0.1); color: $color-font; }
+code.unframed { border-radius: 0; padding: 0; font-size: 100%; background-color: transparent; }
+
+@media (max-width: $bp-sm-upper-limit) {
+	code { white-space: normal; }
+	input:focus { background-color: $color-bg-highlight; }
+}

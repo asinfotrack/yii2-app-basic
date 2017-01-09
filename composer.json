@@ -1,23 +1,26 @@
 {
-    "name": "yiisoft/yii2-app-basic",
-    "description": "Yii 2 Basic Project Template",
-    "keywords": ["yii2", "framework", "basic", "project template"],
-    "homepage": "http://www.yiiframework.com/",
+    "name": "asinfotrack/yii2-app-basic",
+    "description": "Yii 2 Basic Project Template; customized by AS infotrack AG",
+    "keywords": ["yii2", "framework", "basic", "project template", "asinfotrack", "as infotrack"],
+    "homepage": "http://www.asinfotrack.ch/",
     "type": "project",
     "license": "BSD-3-Clause",
     "support": {
-        "issues": "https://github.com/yiisoft/yii2/issues?state=open",
-        "forum": "http://www.yiiframework.com/forum/",
-        "wiki": "http://www.yiiframework.com/wiki/",
-        "irc": "irc://irc.freenode.net/yii",
-        "source": "https://github.com/yiisoft/yii2"
+        "issues": "https://github.com/asinfotrack/yii2-app-basic/issues?state=open",
+        "source": "https://github.com/asinfotrack/yii2-app-basic"
     },
     "minimum-stability": "dev",
     "require": {
         "php": ">=5.4.0",
         "yiisoft/yii2": "~2.0.5",
         "yiisoft/yii2-bootstrap": "~2.0.0",
-        "yiisoft/yii2-swiftmailer": "~2.0.0"
+        "yiisoft/yii2-swiftmailer": "~2.0.0",
+
+        "asinfotrack/yii2-toolbox": "0.8.*",
+
+        "bower-asset/sweetalert": "1.1.*",
+        "2amigos/yii2-tinymce-widget": "*",
+        "rmrevin/yii2-fontawesome": "2.*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

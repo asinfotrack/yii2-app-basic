@@ -1,16 +1,32 @@
-# phpstorm project files
-.idea
+### IDE
 
-# netbeans project files
+# JetBrains / PhpStorm project files
+*.iml
+.idea
+.idea_modules
+
+# Crashlytics plugin (for Android Studio and IntelliJ)
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+
+# Netbeans project files
 nbproject
 
-# zend studio for eclipse project files
+# Eclipse files
 .buildpath
 .project
 .settings
 
+### OPERATING SYSTEM
+
 # windows thumbnail cache
 Thumbs.db
+
+# Mac DS_Store Files
+.DS_Store
+
+### COMPOSER AND OTHER TOOLS
 
 # composer vendor dir
 /vendor
@@ -18,13 +34,14 @@ Thumbs.db
 # composer itself is not needed
 composer.phar
 
-# Mac DS_Store Files
-.DS_Store
-
-# phpunit itself is not needed
+# phpunit and its config itself is not needed
 phpunit.phar
-# local phpunit config
 /phpunit.xml
 
-tests/_output/*
-tests/_support/_generated
+# grunt etc
+/.sass-cache
+/node_modules
+
+### PROJECT SPECIFIC
+
+/web/flags

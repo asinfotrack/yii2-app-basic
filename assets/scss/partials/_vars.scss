@@ -1,0 +1,110 @@
+//grid break points
+
+$bp-lg-lower-limit:				1200px;
+$bp-md-upper-limit:				1199px;
+$bp-md-lower-limit:				992px;
+$bp-sm-upper-limit:				991px;
+$bp-sm-lower-limit:				768px;
+$bp-xs-upper-limit:				767px;
+$bp-xs-lower-limit:				241px;
+$bp-scanner-upper-limit:		240px;
+
+//opacities
+
+$opacity-translucent-vmin:		0.9;
+$opacity-translucent-min:		0.75;
+$opacity-translucent:			0.6;
+$opacity-translucent-max:		0.45;
+$opacity-translucent-vmax:		0.3;
+
+//font definitions
+
+$font-family-content: 			'Open Sans', sans-serif;
+$font-weight-content:			400;
+$font-weight-content-semibold:	600;
+$font-weight-content-bold:		700;
+
+$font-family-heading: 			'Open Sans', sans-serif;
+$font-weight-heading:			700;
+
+$font-family-monospace: 		'Consolas', 'Courier New', monospace;
+$font-weight-monospace:			$font-weight-content;
+
+$font-family-icon:				'FontAwesome';
+
+//measurements
+
+$measure-xs: 					6.25px;
+$measure-sm: 					12.5px;
+$measure: 						25px;
+$measure-lg: 					50px;
+$measure-xl: 					100px;
+
+//font sizes
+
+$font-size-scanner:				0.9rem;
+$font-size-xs:					1rem;
+$font-size-sm:					1.2rem;
+$font-size:						1.4rem;
+
+$font-size-h1:					3.6rem;
+$font-size-h2:					2rem;
+$font-size-h3:					1.7rem;
+$font-size-h4:					$font-size;
+
+$font-scale-smallest:			0.5em;
+$font-scale-smaller:			0.85em;
+$font-scale-larger:				1.1em;
+$font-scale-largest:			1.5em;
+
+//colors
+
+$color-site-primary:			#227542;
+$color-site-secondary:			#47a447;
+
+$color-site-bg:					lighten($color-site-primary, 68);
+
+$color-bg-darkest:				#333;
+$color-bg-darker:				#999;
+$color-bg-dark:					#ccc;
+$color-bg: 						#ddd;
+$color-bg-bright:				#eee;
+$color-bg-brighter:				#f4f4f4;
+$color-bg-brightest:			#fafafa;
+
+$color-bg-highlight:			#ffff99;
+$color-bg-planzer:				#b6394e;
+$color-bg-post:					#fcd330;
+
+$color-border-dark:				#ccc;
+$color-border:					#ddd;
+$color-border-bright:			#eee;
+
+$color-font:					#333;
+$color-font-muted:				#999;
+
+$color-bs-default:				#777;
+$color-bs-primary:				#337ab7;
+$color-bs-success:				#5cb85c;
+$color-bs-info:					#5bc0de;
+$color-bs-warning:				#f0ad4e;
+$color-bs-danger:				#d9534f;
+
+$color-bs-bg-default:			#f5f5f5;
+$color-bs-bg-primary:			#d9edf7;
+$color-bs-bg-success:			#dff0d8;
+$color-bs-bg-info:				#d9edf7;
+$color-bs-bg-warning:			#fcf8e3;
+$color-bs-bg-danger:			#f2dede;
+
+//shadows
+$shadow-menu:					0 2px 5px rgba(0,0,0,0.2);
+
+//transitions
+
+$transition-duration:			150ms;
+$transition-function:			ease-in-out;
+$transition-all:				all  $transition-duration $transition-function;
+$transition-opacity:			opacity $transition-duration $transition-function;
+$transition-color:				color $transition-duration $transition-function;
+$transition-background-color:	background-color $transition-duration $transition-function;
