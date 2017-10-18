@@ -181,7 +181,7 @@ module.exports = function(grunt) {
 			},
 			js: {
 				expand: true,
-				src: 'assets/src/js/init.js',
+				src: 'assets/src/js/site.js',
 				dest: 'web/js/',
 				flatten: true
 			},
