@@ -68,6 +68,10 @@ module.exports = function(grunt) {
 			sweetalert: {
 				src: 'vendor/bower/sweetalert/dist/sweetalert.css',
 				dest: 'web/css/sweetalert.min.css'
+			},
+			magnificPopup: {
+				src: 'vendor/roman444uk/yii2-magnific-popup/assets/css/magnific-popup.css',
+				dest: 'web/css/magnific-popup.min.css'
 			}
 		},
 
@@ -122,6 +126,7 @@ module.exports = function(grunt) {
 				nonull: true,
 				src: [
 					'web/css/sweetalert.min.css',
+					'web/css/magnific-popup.min.css',
 					'vendor/rmrevin/yii2-fontawesome/assets/css/font-awesome.min.css',
 					'web/css/bootstrap.min.css'
 				],
@@ -141,6 +146,7 @@ module.exports = function(grunt) {
 					'vendor/bower/jquery-ui/ui/i18n/datepicker-it-CH.js',
 					'vendor/bower/jquery-ui/ui/i18n/datepicker-en-GB.js',
 					'web/js/modernizr-custom.min.js',
+					'vendor/roman444uk/yii2-magnific-popup/assets/js/jquery.magnific-popup.min.js',
 					'vendor/bower/sweetalert/dist/sweetalert.min.js',
 					'web/js/yii.min.js',
 					'web/js/jquery.pjax.min.js',
@@ -208,7 +214,7 @@ module.exports = function(grunt) {
 		},
 
 		clean: {
-			cssLib: ['web/css/bootstrap.css','web/css/bootstrap.min.css','web/css/sweetalert.min.css'],
+			cssLib: ['web/css/bootstrap.css','web/css/bootstrap.min.css','cssmin:magnificPopup','web/css/sweetalert.min.css'],
 			jsLib: ['web/js/yii.min.js', 'web/js/jquery.pjax.min.js'],
 			modernizr: ['web/js/modernizr-custom.min.js']
 		}

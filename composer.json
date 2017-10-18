@@ -1,60 +1,74 @@
 {
-    "name": "asinfotrack/yii2-app-basic",
-    "description": "Yii 2 Basic Project Template; customized by AS infotrack AG",
-    "keywords": ["yii2", "framework", "basic", "project template", "asinfotrack", "as infotrack"],
-    "homepage": "http://www.asinfotrack.ch/",
-    "type": "project",
-    "license": "BSD-3-Clause",
-    "support": {
-        "issues": "https://github.com/asinfotrack/yii2-app-basic/issues?state=open",
-        "source": "https://github.com/asinfotrack/yii2-app-basic"
-    },
-    "minimum-stability": "dev",
-    "require": {
-        "php": ">=5.4.0",
-        "yiisoft/yii2": "~2.0.5",
-        "yiisoft/yii2-bootstrap": "~2.0.0",
-        "yiisoft/yii2-swiftmailer": "~2.0.0",
+	"name": "asinfotrack/yii2-app-basic",
+	"description": "Yii 2 Basic Project Template; customized by AS infotrack AG",
+	"keywords": ["yii2", "framework", "basic", "project template", "asinfotrack", "as infotrack"],
+	"homepage": "http://www.asinfotrack.ch/",
+	"type": "project",
+	"license": "BSD-3-Clause",
+	"support": {
+		"issues": "https://github.com/asinfotrack/yii2-app-basic/issues?state=open",
+		"source": "https://github.com/asinfotrack/yii2-app-basic"
+	},
+	"minimum-stability": "stable",
+	"require": {
+		"php": ">=5.4.0",
+		"yiisoft/yii2": "~2.0.12",
+		"yiisoft/yii2-bootstrap": "~2.0.0",
+		"yiisoft/yii2-swiftmailer": "~2.0.0",
 
-        "asinfotrack/yii2-toolbox": "0.8.*",
+		"asinfotrack/yii2-toolbox": "~0.8.5",
 
-        "bower-asset/sweetalert": "1.1.*",
-        "2amigos/yii2-tinymce-widget": "*",
-        "rmrevin/yii2-fontawesome": "2.*"
-    },
-    "require-dev": {
-        "yiisoft/yii2-debug": "~2.0.0",
-        "yiisoft/yii2-gii": "~2.0.0",
-        "yiisoft/yii2-faker": "~2.0.0",
+		"2amigos/yii2-tinymce-widget": "~1.1.2",
+		"rmrevin/yii2-fontawesome": "~2.0",
+		"yurkinx/yii2-image": "~1.1",
+		"bower-asset/sweetalert": "1.1.*",
+		"roman444uk/yii2-magnific-popup": "dev-master"
+	},
+	"require-dev": {
+		"yiisoft/yii2-debug": "~2.0.0",
+		"yiisoft/yii2-gii": "~2.0.0",
+		"yiisoft/yii2-faker": "~2.0.0",
 
-        "codeception/base": "^2.2.3",
-        "codeception/verify": "~0.3.1",
-        "codeception/specify": "~0.4.3"
-    },
-    "config": {
-        "process-timeout": 1800
-    },
-    "scripts": {
-        "post-create-project-cmd": [
-            "yii\\composer\\Installer::postCreateProject"
-        ]
-    },
-    "extra": {
-        "yii\\composer\\Installer::postCreateProject": {
-            "setPermission": [
-                {
-                    "runtime": "0777",
-                    "web/assets": "0777",
-                    "yii": "0755"
-                }
-            ],
-            "generateCookieValidationKey": [
-                "config/web.php"
-            ]
-        },
-        "asset-installer-paths": {
-            "npm-asset-library": "vendor/npm",
-            "bower-asset-library": "vendor/bower"
-        }
-    }
+		"codeception/base": "^2.2.3",
+		"codeception/verify": "~0.3.1",
+		"codeception/specify": "~0.4.3"
+	},
+	"config": {
+		"process-timeout": 1800,
+		"fxp-asset":{
+			"installer-paths": {
+				"npm-asset-library": "vendor/npm",
+				"bower-asset-library": "vendor/bower"
+			}
+		}
+	},
+	"scripts": {
+		"post-install-cmd": [
+			"yii\\composer\\Installer::postInstall"
+		],
+		"post-create-project-cmd": [
+			"yii\\composer\\Installer::postCreateProject",
+			"yii\\composer\\Installer::postInstall"
+		]
+	},
+	"extra": {
+		"yii\\composer\\Installer::postCreateProject": {
+			"setPermission": [
+				{
+					"runtime": "0777",
+					"web/assets": "0777",
+					"yii": "0755"
+				}
+			]
+		},
+		"yii\\composer\\Installer::postInstall": {
+			"generateCookieValidationKey": [
+				"config/web.php"
+			]
+		},
+		"asset-installer-paths": {
+			"npm-asset-library": "vendor/npm",
+			"bower-asset-library": "vendor/bower"
+		}
+	}
 }

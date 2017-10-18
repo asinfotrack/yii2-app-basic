@@ -5,7 +5,7 @@ use yii\helpers\FileHelper;
 
 /* @var $this \app\components\View */
 
-$menuItems = require(FileHelper::normalizePath(Yii::getAlias('@app/config/menu-items.php')));
+$menuItems = require(FileHelper::normalizePath(Yii::getAlias('@app/content/menu-items.php')));
 ?>
 
 <?php NavBar::begin([

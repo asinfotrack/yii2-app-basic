@@ -1,23 +1,21 @@
 <?php
-require('environment.php');
+use yii\helpers\ArrayHelper;
 
-//prepare actual config
-return [
+$config = [
 
 	'id'=>'site-console',
 	'basePath'=>dirname(__DIR__),
 	'bootstrap'=>['log'],
 	'controllerNamespace'=>'app\commands',
-	'modules'=>[
-		'gii'=>'yii\gii\Module',
-	],
+
 	'components'=>[
 
 		'cache'=>[
-			'class'=>'yii\caching\DbCache',
+			//'class'=>'yii\caching\DbCache',
+			'class'=>'yii\caching\FileCache',
 		],
 		'log'=>[
-			'traceLevel'=>0,
+			'traceLevel'=>YII_DEBUG ? 3 : 0,
 			'targets'=>[
 				[
 					'class'=>'yii\log\FileTarget',
@@ -35,10 +33,13 @@ return [
 				],
 			],
 		],
-		'db'=>require(__DIR__ . '/db.php'),
+
+		'db'=>require(__DIR__ . '/db-local.php')
 
 	],
 
 	'params'=>require(__DIR__ . '/params.php'),
 
 ];
+
+return ArrayHelper::merge($config, require(__DIR__ . '/console-local.php'));

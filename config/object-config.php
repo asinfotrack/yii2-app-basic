@@ -1,8 +1,9 @@
 <?php
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use rmrevin\yii\fontawesome\FA;
 
-return [
+$objectConfig = [
 
 	/* button */
 	'yii\bootstrap\Button'=>[
@@ -167,3 +168,5 @@ return [
 	],
 
 ];
+
+return ArrayHelper::merge($objectConfig, require(__DIR__ . '/object-config-local.php'));

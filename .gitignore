@@ -42,6 +42,18 @@ phpunit.phar
 /.sass-cache
 /node_modules
 
+### ENVIRONMENT CONFIG
+/config/asset-bundles-local.php
+/config/console-local.php
+/config/db-local.php
+/config/environment-local.php
+/config/object-config-local.php
+/config/params-local.php
+/config/web-local.php
+/web/.htaccess
+/web/index.php
+/web/robots.txt
+
 ### PROJECT SPECIFIC
 
 /web/flags

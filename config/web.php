@@ -1,6 +1,6 @@
 <?php
+use yii\helpers\ArrayHelper;
 
-//get default configs for classes
 $objectConfig = require(__DIR__ . '/object-config.php');
 foreach ($objectConfig as $class=>$config) {
 	Yii::$container->set($class, $config);
@@ -27,6 +27,14 @@ $config = [
 			'enableAutoLogin'=>true,
 			'loginUrl'=>['site/login'],
 		],
+		'cache'=>[
+			//'class'=>'yii\caching\DbCache',
+			'class'=>'yii\caching\FileCache',
+		],
+		'request'=>[
+			//TODO: replace this with own key!!!
+			'cookieValidationKey'=>'QO_jGAVnuED1nTf1Kj8gzBtWjPx8SQSt',
+		],
 		'urlManager'=>[
 			'enablePrettyUrl'=>true,
 			'showScriptName'=>false,
@@ -36,12 +44,12 @@ $config = [
 				'logout'=>'site/logout',
 			],
 		],
-		'request'=>[
-			//TODO: replace this with own key!!!
-			'cookieValidationKey'=>'QO_jGAVnuED1nTf1Kj8gzBtWjPx8SQSt',
+		'view'=>[
+			'class'=>'app\components\View',
 		],
-		'cache'=>[
-			'class'=>'yii\caching\DbCache',
+		'assetManager'=>[
+			'appendTimestamp'=>true,
+			'bundles'=>require(__DIR__ . '/asset-bundles.php'),
 		],
 		'errorHandler'=>[
 			'errorAction'=>'site/error',
@@ -50,6 +58,10 @@ $config = [
 			'class'=>'yii\swiftmailer\Mailer',
 			'useFileTransport'=>YII_DEBUG || YII_ENV_DEV,
 		],
+		'image'=>array(
+			'class'=>'yii\image\ImageDriver',
+			'driver'=>'GD',
+		),
 		'log'=>[
 			'traceLevel'=>YII_DEBUG ? 3 : 0,
 			'targets'=>[
@@ -69,23 +81,13 @@ $config = [
 				],
 			],
 		],
-		'db'=>require(__DIR__ . '/db.php'),
+
+		'db'=>require(__DIR__ . '/db-local.php'),
 
 	],
+
 	'params'=>require(__DIR__ . '/params.php'),
+
 ];
 
-if (YII_ENV_DEV) {
-	// configuration adjustments for 'dev' environment
-	$config['bootstrap'][] = 'debug';
-	$config['modules']['debug'] = [
-		'class'=>'yii\debug\Module',
-	];
-
-	$config['bootstrap'][] = 'gii';
-	$config['modules']['gii'] = [
-		'class'=>'yii\gii\Module',
-	];
-}
-
-return $config;
+return ArrayHelper::merge($config, require(__DIR__ . '/web-local.php'));
