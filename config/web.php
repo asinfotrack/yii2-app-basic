@@ -1,7 +1,7 @@
 <?php
 use yii\helpers\ArrayHelper;
 
-$objectConfig = require(__DIR__ . '/object-config.php');
+$objectConfig = ArrayHelper::merge(require(__DIR__ . '/object-config.php'), require(__DIR__ . '/object-config-local.php'));
 foreach ($objectConfig as $class=>$config) {
 	Yii::$container->set($class, $config);
 }
@@ -17,7 +17,6 @@ $config = [
 	'bootstrap'=>['log'],
 
 	'components'=>[
-
 		'authManager'=>[
 			'class'=>'yii\rbac\PhpManager',
 		],
@@ -37,6 +36,7 @@ $config = [
 		],
 		'urlManager'=>[
 			'enablePrettyUrl'=>true,
+			'enableStrictParsing'=>true,
 			'showScriptName'=>false,
 			'rules'=>[
 				''=>'site/index',

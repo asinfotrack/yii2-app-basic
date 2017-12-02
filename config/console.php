@@ -1,6 +1,8 @@
 <?php
 use yii\helpers\ArrayHelper;
 
+require('environment.php');
+
 $config = [
 
 	'id'=>'site-console',
@@ -34,7 +36,7 @@ $config = [
 			],
 		],
 
-		'db'=>require(__DIR__ . '/db-local.php')
+		'db'=>require(__DIR__ . '/db.php')
 
 	],
 
