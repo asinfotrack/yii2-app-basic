@@ -1,13 +1,8 @@
 <?php
 $items = [
 	['label'=>'Home', 'url'=>['/site/index']],
+	Yii::$app->user->isGuest ? ['label'=>'Login', 'url'=>['/site/login']] : ['label'=>'Logout', 'url'=>['/site/logout']],
 ];
-
-if (Yii::$app->user->isGuest) {
-	$items[] = ['label'=>'Login', 'url'=>['/site/login']];
-} else {
-	$items[] = ['label'=>'Logout', 'url'=>['/site/logout']];
-}
 
 return $items;
 

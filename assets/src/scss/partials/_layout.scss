@@ -1,0 +1,49 @@
+#wrapper {
+
+	@include flexbox();
+	@include flex-direction(row);
+
+	height: 100%;
+
+	#nav-wrapper {
+		@include flex(0, 0, 200px);
+		overflow-y: auto;
+
+		#nav {
+			@include flex(1);
+			@include flexbox();
+			@include flex-direction(column);
+
+			min-height: 100%;
+			color: #fff;
+			background-color: $color-bg-darkest;
+		}
+	}
+
+	#content-wrapper {
+		@include flex(1);
+		overflow-y: auto;
+
+		#content {
+			@include flex(1);
+			@include flexbox();
+			@include flex-direction(column);
+
+			min-height: 100%;
+			padding: $measure-lg;
+
+			> #content-head {
+				@include flex(null, 0, null);
+			}
+			> #content-body {
+				@include flex(1);
+				@include flexbox();
+				@include flex-direction(column);
+			}
+			> #content-footer {
+				@include flex(null, 0, null);
+			}
+		}
+	}
+
+}
