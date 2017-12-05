@@ -1,6 +1,10 @@
 <?php
 use yii\helpers\ArrayHelper;
 
+//execute environment config
+require(__DIR__ . '/environment.php');
+
+//execute object config
 $objectConfig = ArrayHelper::merge(require(__DIR__ . '/object-config.php'), require(__DIR__ . '/object-config-local.php'));
 foreach ($objectConfig as $class=>$config) {
 	Yii::$container->set($class, $config);
@@ -42,6 +46,8 @@ $config = [
 				''=>'site/index',
 				'login'=>'site/login',
 				'logout'=>'site/logout',
+				'<controller:[\w-]+>'=>'<controller>/index',
+				'<controller:[\w-]+>/<action:[\w-]+>/<id:\d+>'=>'<controller>/<action>',
 			],
 		],
 		'view'=>[
@@ -84,6 +90,12 @@ $config = [
 
 		'db'=>require(__DIR__ . '/db-local.php'),
 
+	],
+
+	'modules'=>[
+		'api-v1'=>[
+			'class'=>'app\modules\api\v1\Module',
+		],
 	],
 
 	'params'=>require(__DIR__ . '/params.php'),

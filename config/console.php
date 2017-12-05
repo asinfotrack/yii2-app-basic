@@ -1,7 +1,8 @@
 <?php
 use yii\helpers\ArrayHelper;
 
-require('environment.php');
+//execute environment config
+require(__DIR__ . '/environment.php');
 
 $config = [
 
