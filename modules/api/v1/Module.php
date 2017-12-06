@@ -9,9 +9,7 @@ class Module extends \yii\base\Module implements \yii\base\BootstrapInterface
 	 */
 	public function bootstrap($app)
 	{
-		$app->getUrlManager()->addRules([
-			['class'=>'yii\rest\UrlRule', 'controller'=>sprintf('%s/user', $this->id)],
-		]);
+		
 	}
 
 }

@@ -43,11 +43,37 @@ $config = [
 			'enableStrictParsing'=>true,
 			'showScriptName'=>false,
 			'rules'=>[
+				[
+					'class'=>'yii\rest\UrlRule',
+					'controller'=>['api-v1/task'],
+					'pluralize'=>true,
+				],
+
 				''=>'site/index',
 				'login'=>'site/login',
 				'logout'=>'site/logout',
-				'<controller:[\w-]+>'=>'<controller>/index',
-				'<controller:[\w-]+>/<action:[\w-]+>/<id:\d+>'=>'<controller>/<action>',
+
+				[
+					'name'=>'default controller without action',
+					'pattern'=>'<controller:[a-zA-Z]+[a-zA-Z0-9-]*>',
+					'route'=>'<controller>/index',
+					'mode'=>UrlRule::CREATION_ONLY,
+				],
+				[
+					'name'=>'default controller/action/id',
+					'pattern'=>'<controller:[a-zA-Z]+[a-zA-Z0-9-]*>/<action:[a-zA-Z]+[a-zA-Z0-9-]*>/<id:\d+>',
+					'route'=>'<controller>/<action>',
+				],
+				[
+					'name'=>'default controller/action',
+					'pattern'=>'<controller:[a-zA-Z]+[a-zA-Z0-9-]*>/<action:[a-zA-Z]+[a-zA-Z0-9-]*>',
+					'route'=>'<controller>/<action>',
+				],
+				[
+					'name'=>'default controller without action',
+					'pattern'=>'<controller:[a-zA-Z]+[a-zA-Z0-9-]*>',
+					'route'=>'<controller>/index',
+				],
 			],
 		],
 		'view'=>[
