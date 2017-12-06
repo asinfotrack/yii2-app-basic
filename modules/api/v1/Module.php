@@ -9,7 +9,7 @@ class Module extends \yii\base\Module implements \yii\base\BootstrapInterface
 	 */
 	public function bootstrap($app)
 	{
-		
+
 	}
 
 }
