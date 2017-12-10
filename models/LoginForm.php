@@ -6,15 +6,15 @@ use Yii;
 class LoginForm extends \yii\base\Model
 {
 
-	public $email;
+	public $username;
 	public $password;
 	public $remember = true;
 
 	public function rules()
 	{
 		return [
-			[['email','password'], 'required'],
-			[['email'], 'email'],
+			[['username','password'], 'required'],
+			[['username'], 'email'],
 			[['password'], 'string', 'max'=>128],
 			[['remember'], 'boolean'],
 
@@ -25,7 +25,7 @@ class LoginForm extends \yii\base\Model
 	public function attributeLabels()
 	{
 		return [
-			'email'=>'E-Mail',
+			'username'=>'E-Mail',
 			'password'=>'Passwort',
 			'remember'=>'automatisch einloggen',
 		];
@@ -37,7 +37,7 @@ class LoginForm extends \yii\base\Model
 		if ($this->hasErrors()) return;
 
 		//find the user model and validate the password
-		$model = User::findIdentityByEmail($this->email);
+		$model = User::findOne($this->username);
 		if ($model === null || !$model->validatePassword($this->password)) {
 			$this->addError($attribute, 'Ungültiger Benutzer oder falsches Passwort!');
 		}
@@ -49,7 +49,7 @@ class LoginForm extends \yii\base\Model
 		if (!$this->validate()) return false;
 
 		//login the user
-		$model = User::findIdentityByEmail($this->email);
+		$model = User::findOne($this->username);
 		return Yii::$app->user->login($model, $this->remember ? 30*86400 : 0);
 	}
 

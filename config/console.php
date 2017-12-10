@@ -1,9 +1,6 @@
 <?php
 use yii\helpers\ArrayHelper;
 
-//execute environment config
-require(__DIR__ . '/environment.php');
-
 $config = [
 
 	'id'=>'site-console',

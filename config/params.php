@@ -14,6 +14,14 @@ $params = [
 		],
 	],
 
+	'jwt'=>[
+		'algorithm'=>'HS256',
+		'secret'=>'>>>INSERT SECRET HERE<<<',
+		'lifespanSeconds'=>86400*30*6,
+		'includeRoles'=>true,
+		'includePermissions'=>false,
+	],
+
 ];
 
 return ArrayHelper::merge($params, require(__DIR__ . '/params-local.php'));

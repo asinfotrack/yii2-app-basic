@@ -1,8 +1,6 @@
 <?php
 use yii\helpers\ArrayHelper;
-
-//execute environment config
-require(__DIR__ . '/environment.php');
+use yii\web\UrlRule;
 
 //execute object config
 $objectConfig = ArrayHelper::merge(require(__DIR__ . '/object-config.php'), require(__DIR__ . '/object-config-local.php'));
@@ -43,12 +41,6 @@ $config = [
 			'enableStrictParsing'=>true,
 			'showScriptName'=>false,
 			'rules'=>[
-				[
-					'class'=>'yii\rest\UrlRule',
-					'controller'=>['api-v1/task'],
-					'pluralize'=>true,
-				],
-
 				''=>'site/index',
 				'login'=>'site/login',
 				'logout'=>'site/logout',
